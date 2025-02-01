@@ -1,0 +1,53 @@
+{
+    "lexicon": 1,
+    "id": "app.reelo.feed.getTrendingVideos",
+    "defs": {
+      "main": {
+        "type": "query",
+        "description": "Retrieve a list of trending videos, based on popularity or engagement metrics.",
+        "parameters": {
+          "type": "params",
+          "properties": {
+            "limit": {
+              "type": "integer",
+              "default": 20
+            },
+            "cursor": {
+              "type": "string",
+              "description": "Pagination cursor."
+            },
+            "region": {
+              "type": "string",
+              "description": "Optional region or locale for localized trending."
+            },
+            "timeRange": {
+              "type": "string",
+              "description": "e.g. '24h', '7d', '30d' for last 24 hours, last 7 days, etc.",
+              "default": "24h"
+            }
+          }
+        },
+        "output": {
+          "encoding": "application/json",
+          "schema": {
+            "type": "object",
+            "required": ["items"],
+            "properties": {
+              "items": {
+                "type": "array",
+                "items": {
+                  "type": "ref",
+                  "ref": "app.reelo.feed.defs#feedItem"
+                }
+              },
+              "cursor": {
+                "type": "string",
+                "description": "Cursor for next page of results."
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  

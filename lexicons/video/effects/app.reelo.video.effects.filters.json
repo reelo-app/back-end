@@ -1,0 +1,31 @@
+{
+    "lexicon": 1,
+    "id": "app.reelo.video.effects.filters",
+    "type": "record",
+    "description": "Defines a standard filter effect (color LUT, brightness/contrast, etc.).",
+    "record": {
+      "type": "object",
+      "required": ["filterFile"],
+      "properties": {
+        "$type": {
+          "type": "const",
+          "const": "app.reelo.video.effects.filters"
+        },
+        "base": {
+          "type": "ref",
+          "ref": "app.reelo.video.effects.defs#baseEffect"
+        },
+        "filterFile": {
+          "type": "blob",
+          "description": "Blob or reference to LUT file or filter data."
+        },
+        "intensity": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1,
+          "description": "Default intensity (0-1) for applying the filter."
+        }
+      }
+    }
+  }
+  

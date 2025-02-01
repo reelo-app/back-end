@@ -1,0 +1,35 @@
+{
+    "lexicon": 1,
+    "id": "app.reelo.actions.follow",
+    "type": "record",
+    "description": "Represents a user following another user in Reelo.",
+    "record": {
+      "type": "object",
+      "required": ["follower", "followed", "createdAt"],
+      "properties": {
+        "$type": {
+          "type": "const",
+          "const": "app.reelo.actions.follow"
+        },
+        "follower": {
+          "type": "ref",
+          "ref": "app.reelo.creator.defs#accountReference",
+          "description": "The user who is following someone."
+        },
+        "followed": {
+          "type": "ref",
+          "ref": "app.reelo.creator.defs#accountReference",
+          "description": "The user who is being followed."
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "mutual": {
+          "type": "boolean",
+          "description": "Set to true if the followed user also follows the follower."
+        }
+      }
+    }
+  }
+  

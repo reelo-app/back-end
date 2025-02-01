@@ -1,0 +1,67 @@
+{
+    "lexicon": 1,
+    "id": "app.reelo.feed.getUnifiedFeed",
+    "defs": {
+      "main": {
+        "type": "query",
+        "description": "Retrieve a unified feed of videos with advanced filters (hashtags, keywords, users, etc.).",
+        "parameters": {
+          "type": "params",
+          "properties": {
+            "hashtags": {
+              "type": "array",
+              "description": "List of hashtags to filter by, e.g. ['funny', 'music'].",
+              "items": { "type": "string" }
+            },
+            "keywords": {
+              "type": "array",
+              "description": "List of keywords to match in title/description.",
+              "items": { "type": "string" }
+            },
+            "userDids": {
+              "type": "array",
+              "description": "Limit feed to posts from these user DIDs (optional).",
+              "items": { "type": "string", "format": "did" }
+            },
+            "minLikes": {
+              "type": "integer",
+              "description": "Filter videos that have at least this many likes."
+            },
+            "sort": {
+              "type": "string",
+              "description": "How to sort results: 'recent', 'popular', 'custom'.",
+              "default": "recent"
+            },
+            "limit": {
+              "type": "integer",
+              "default": 20
+            },
+            "cursor": {
+              "type": "string"
+            }
+          }
+        },
+        "output": {
+          "encoding": "application/json",
+          "schema": {
+            "type": "object",
+            "required": ["items"],
+            "properties": {
+              "items": {
+                "type": "array",
+                "items": {
+                  "type": "ref",
+                  "ref": "app.reelo.feed.defs#feedItem"
+                }
+              },
+              "cursor": {
+                "type": "string",
+                "description": "Cursor for next page of results."
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  

@@ -1,0 +1,31 @@
+{
+    "lexicon": 1,
+    "id": "app.reelo.video.interactions.share",
+    "type": "record",
+    "description": "A share action on a video (or possibly a comment/reply)",
+    "record": {
+      "type": "object",
+      "required": ["sharedBy", "subject", "createdAt"],
+      "properties": {
+        "sharedBy": {
+          "type": "ref",
+          "ref": "app.reelo.creator.defs#accountReference",
+          "description": "User who shared the content"
+        },
+        "subject": {
+          "type": "ref",
+          "ref": "app.reelo.video.interactions.defs#subjectReference",
+          "description": "A reference to the record being shared"
+        },
+        "destination": {
+          "type": "string",
+          "description": "Optional: Where it's shared (Bluesky, copy link, Twitter, etc.)"
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time"
+        }
+      }
+    }
+  }
+  

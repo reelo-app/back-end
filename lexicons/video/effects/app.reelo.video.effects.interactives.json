@@ -1,0 +1,37 @@
+{
+    "lexicon": 1,
+    "id": "app.reelo.video.effects.interactives",
+    "type": "record",
+    "description": "Defines an interactive effect or mini-game overlay in a Reelo video.",
+    "record": {
+      "type": "object",
+      "required": ["scriptBlob", "interactionType"],
+      "properties": {
+        "$type": {
+          "type": "const",
+          "const": "app.reelo.video.effects.interactives"
+        },
+        "base": {
+          "type": "ref",
+          "ref": "app.reelo.video.effects.defs#baseEffect"
+        },
+        "scriptBlob": {
+          "type": "blob",
+          "description": "Code or data that defines interactive behavior (e.g. a JavaScript file or game script)."
+        },
+        "interactionType": {
+          "type": "string",
+          "description": "e.g. 'faceGestures', 'handTracking', 'touchInput', etc."
+        },
+        "scoresEnabled": {
+          "type": "boolean",
+          "description": "Does this effect track a user score or gameplay result?"
+        },
+        "multiplayer": {
+          "type": "boolean",
+          "description": "Whether this effect can be used simultaneously by multiple participants."
+        }
+      }
+    }
+  }
+  

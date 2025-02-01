@@ -1,0 +1,42 @@
+{
+    "lexicon": 1,
+    "id": "app.reelo.comments.reply",
+    "type": "record",
+    "description": "A reply to a comment in Reelo.",
+    "record": {
+      "type": "object",
+      "required": ["commentUri", "repliedBy", "text", "createdAt"],
+      "properties": {
+        "$type": {
+          "type": "const",
+          "const": "app.reelo.comments.reply"
+        },
+        "commentUri": {
+          "type": "string",
+          "description": "URI of the comment this reply targets (app.reelo.comments.comment)."
+        },
+        "repliedBy": {
+          "type": "ref",
+          "ref": "app.reelo.creator.defs#accountReference",
+          "description": "User who made the reply."
+        },
+        "text": {
+          "type": "string",
+          "maxLength": 1000,
+          "description": "Reply text content."
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "moderationStatus": {
+          "type": "ref",
+          "ref": "app.reelo.comments.defs#moderationStatus"
+        },
+        "likeCount": {
+          "type": "integer"
+        }
+      }
+    }
+  }
+  

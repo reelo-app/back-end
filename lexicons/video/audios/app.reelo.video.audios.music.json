@@ -1,0 +1,42 @@
+{
+    "lexicon": 1,
+    "id": "app.reelo.video.audios.music",
+    "type": "record",
+    "description": "Represents a licensed or library music track in Reelo",
+    "record": {
+      "type": "object",
+      "required": ["artistName"],
+      "properties": {
+        "$type": {
+          "type": "const",
+          "const": "app.reelo.video.audios.music"
+        },
+        "base": {
+          "type": "ref",
+          "ref": "app.reelo.video.audios.defs#baseAudio",
+          "description": "Common audio fields"
+        },
+        "artistName": {
+          "type": "string",
+          "description": "Main artist name for the music track."
+        },
+        "licenseType": {
+          "type": "string",
+          "description": "License status of the track, e.g. 'royalty-free', 'licensed', etc."
+        },
+        "coverArt": {
+          "type": "blob",
+          "description": "Optional album or track cover image."
+        },
+        "genre": {
+          "type": "string",
+          "description": "Genre classification (pop, rock, classical, etc.)"
+        },
+        "label": {
+          "type": "string",
+          "description": "Record label or rights holder."
+        }
+      }
+    }
+  }
+  

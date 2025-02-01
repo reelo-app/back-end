@@ -1,0 +1,31 @@
+{
+    "lexicon": 1,
+    "id": "app.reelo.actions.block",
+    "type": "record",
+    "description": "Represents a user blocking another user in Reelo.",
+    "record": {
+      "type": "object",
+      "required": ["blocker", "blocked", "createdAt"],
+      "properties": {
+        "$type": {
+          "type": "const",
+          "const": "app.reelo.actions.block"
+        },
+        "blocker": {
+          "type": "ref",
+          "ref": "app.reelo.creator.defs#accountReference",
+          "description": "The user who initiates the block."
+        },
+        "blocked": {
+          "type": "ref",
+          "ref": "app.reelo.creator.defs#accountReference",
+          "description": "The user who is blocked."
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time"
+        }
+      }
+    }
+  }
+  

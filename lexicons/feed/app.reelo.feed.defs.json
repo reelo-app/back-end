@@ -1,0 +1,46 @@
+{
+    "lexicon": 1,
+    "id": "app.reelo.feed.defs",
+    "defs": {
+      "feedItem": {
+        "type": "object",
+        "description": "Represents a single item in the Reelo feed (typically a video post).",
+        "required": ["uri", "cid"],
+        "properties": {
+          "uri": {
+            "type": "string",
+            "format": "uri",
+            "description": "The AT Protocol URI (at://) pointing to the content record."
+          },
+          "cid": {
+            "type": "string",
+            "description": "Content identifier of the record for versioning."
+          },
+          "author": {
+            "type": "ref",
+            "ref": "app.reelo.creator.defs#accountReference",
+            "description": "Who created the post/video."
+          },
+          "record": {
+            "type": "ref",
+            "ref": "app.reelo.video.post",
+            "description": "The actual content object (e.g. a Reelo video post)."
+          },
+          "labels": {
+            "type": "array",
+            "items": {
+              "type": "ref",
+              "ref": "com.atproto.label.defs#label"
+            },
+            "description": "Labels attached to this item (moderation, categories, etc.)."
+          },
+          "indexedAt": {
+            "type": "string",
+            "format": "date-time",
+            "description": "When this feed item was last indexed for feed display."
+          }
+        }
+      }
+    }
+  }
+  

@@ -1,0 +1,27 @@
+{
+    "lexicon": 1,
+    "id": "app.reelo.comments.defs",
+    "defs": {
+      "moderationStatus": {
+        "type": "string",
+        "description": "Represents moderation status for a comment or reply",
+        "enum": ["active", "removed", "silenced", "adult"]
+      },
+      "subjectReference": {
+        "type": "object",
+        "description": "A reference to what is being commented on (could be a video, post, etc.)",
+        "required": ["uri"],
+        "properties": {
+          "uri": {
+            "type": "string",
+            "description": "URI to the record being commented on"
+          },
+          "cid": {
+            "type": "string",
+            "description": "Optional content identifier (CID) for versioning"
+          }
+        }
+      }
+    }
+  }
+  

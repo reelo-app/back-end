@@ -1,0 +1,27 @@
+{
+    "lexicon": 1,
+    "id": "app.reelo.video.interactions.like",
+    "type": "record",
+    "description": "A like on a video or comment or reply",
+    "record": {
+      "type": "object",
+      "required": ["likedBy", "subject", "createdAt"],
+      "properties": {
+        "likedBy": {
+          "type": "ref",
+          "ref": "app.reelo.creator.defs#accountReference",
+          "description": "The user who liked the subject"
+        },
+        "subject": {
+          "type": "ref",
+          "ref": "app.reelo.video.interactions.defs#subjectReference",
+          "description": "A reference to the record being liked"
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time"
+        }
+      }
+    }
+  }
+  

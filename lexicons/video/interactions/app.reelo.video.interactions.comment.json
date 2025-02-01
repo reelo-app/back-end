@@ -1,0 +1,44 @@
+{
+    "lexicon": 1,
+    "id": "app.reelo.video.interactions.comment",
+    "type": "record",
+    "description": "A comment on a Reelo video",
+    "record": {
+      "type": "object",
+      "required": ["videoUri", "commentedBy", "text", "createdAt"],
+      "properties": {
+        "videoUri": {
+          "type": "string",
+          "description": "URI of the video on which this comment is posted, e.g. app.reelo.video.post"
+        },
+        "commentedBy": {
+          "type": "ref",
+          "ref": "app.reelo.creator.defs#accountReference",
+          "description": "Reference to the user who created the comment"
+        },
+        "text": {
+          "type": "string",
+          "maxLength": 1000,
+          "description": "Comment text content"
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "moderationStatus": {
+          "type": "ref",
+          "ref": "app.reelo.video.interactions.defs#moderationStatus",
+          "description": "Whether the comment is active, removed, silenced, adult, etc."
+        },
+        "likeCount": {
+          "type": "integer",
+          "description": "Number of likes on this comment"
+        },
+        "replyCount": {
+          "type": "integer",
+          "description": "Number of replies to this comment"
+        }
+      }
+    }
+  }
+  

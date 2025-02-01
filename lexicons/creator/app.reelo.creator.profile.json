@@ -1,0 +1,82 @@
+{
+    "lexicon": 1,
+    "id": "app.reelo.creator.profile",
+    "type": "record",
+    "description": "Profile record for Reelo user, compatible with Bluesky actor profile schema",
+    "record": {
+      "type": "object",
+      "required": ["did", "handle", "displayName", "createdAt"],
+      "properties": {
+        "did": {
+          "type": "string",
+          "format": "did",
+          "description": "The user's unique DID"
+        },
+        "handle": {
+          "type": "string",
+          "format": "handle",
+          "description": "The user's handle, e.g. user.reelo.app or user.bsky.social"
+        },
+        "displayName": {
+          "type": "string",
+          "maxGraphemes": 64,
+          "maxLength": 640,
+          "description": "Display name (similar to Bluesky)."
+        },
+        "description": {
+          "type": "string",
+          "maxGraphemes": 256,
+          "maxLength": 2560,
+          "description": "Optional bio or description."
+        },
+        "avatar": {
+          "type": "string",
+          "format": "uri",
+          "description": "URL to the user's avatar image."
+        },
+        "banner": {
+          "type": "string",
+          "format": "uri",
+          "description": "Optional banner image."
+        },
+        "moderationStatus": {
+          "type": "ref",
+          "ref": "app.reelo.creator.defs#moderationStatus"
+        },
+        "indexedAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "When this profile was last indexed."
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "When the account was created."
+        },
+        "email": {
+          "type": "string",
+          "format": "email",
+          "description": "Optional email address if stored by Reelo. Not typically part of public record."
+        },
+        "birthDate": {
+          "type": "string",
+          "format": "date",
+          "description": "User's birth date (optional)."
+        },
+        "viewer": {
+          "type": "ref",
+          "ref": "app.bsky.actor.defs#viewerState",
+          "description": "Optional reference to Bluesky's viewer state (relationship data)."
+        },
+        "labels": {
+          "type": "array",
+          "description": "Optional labels for content moderation, from Bluesky or Reelo.",
+          "items": {
+            "type": "ref",
+            "ref": "com.atproto.label.defs#label"
+          }
+        }
+      }
+    }
+  }
+  

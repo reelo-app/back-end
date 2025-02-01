@@ -1,0 +1,55 @@
+{
+    "lexicon": 1,
+    "id": "app.reelo.feed.getVideosByHashtag",
+    "defs": {
+      "main": {
+        "type": "query",
+        "description": "Retrieve videos matching a specific hashtag (sorted by recency or popularity).",
+        "parameters": {
+          "type": "params",
+          "required": ["hashtag"],
+          "properties": {
+            "hashtag": {
+              "type": "string",
+              "description": "The hashtag to filter by, without '#', e.g. 'funny'."
+            },
+            "limit": {
+              "type": "integer",
+              "description": "Max number of items to return.",
+              "default": 20
+            },
+            "cursor": {
+              "type": "string",
+              "description": "Pagination cursor for fetching more results."
+            },
+            "sort": {
+              "type": "string",
+              "description": "Optional sorting method, e.g. 'recent' or 'popular'.",
+              "default": "recent"
+            }
+          }
+        },
+        "output": {
+          "encoding": "application/json",
+          "schema": {
+            "type": "object",
+            "required": ["items"],
+            "properties": {
+              "items": {
+                "type": "array",
+                "items": {
+                  "type": "ref",
+                  "ref": "app.reelo.feed.defs#feedItem"
+                }
+              },
+              "cursor": {
+                "type": "string",
+                "description": "Cursor to request the next page of results."
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  

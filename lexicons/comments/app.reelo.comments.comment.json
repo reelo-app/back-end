@@ -1,0 +1,48 @@
+{
+    "lexicon": 1,
+    "id": "app.reelo.comments.comment",
+    "type": "record",
+    "description": "A top-level comment on a subject (e.g., video, post).",
+    "record": {
+      "type": "object",
+      "required": ["subject", "commentedBy", "text", "createdAt"],
+      "properties": {
+        "$type": {
+          "type": "const",
+          "const": "app.reelo.comments.comment"
+        },
+        "subject": {
+          "type": "ref",
+          "ref": "app.reelo.comments.defs#subjectReference",
+          "description": "Reference to the thing being commented on."
+        },
+        "commentedBy": {
+          "type": "ref",
+          "ref": "app.reelo.creator.defs#accountReference",
+          "description": "User who made the comment."
+        },
+        "text": {
+          "type": "string",
+          "maxLength": 1000,
+          "description": "Main text of the comment."
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "moderationStatus": {
+          "type": "ref",
+          "ref": "app.reelo.comments.defs#moderationStatus"
+        },
+        "likeCount": {
+          "type": "integer",
+          "description": "Number of likes on this comment."
+        },
+        "replyCount": {
+          "type": "integer",
+          "description": "Number of replies to this comment."
+        }
+      }
+    }
+  }
+  

@@ -1,0 +1,52 @@
+{
+    "lexicon": 1,
+    "id": "app.reelo.video.defs",
+    "defs": {
+      "visibility": {
+      "type": "string",
+      "enum": ["public", "followers", "private"]
+      },
+      "jobStatus": {
+        "type": "object",
+        "required": ["jobId", "did", "state"],
+        "properties": {
+          "jobId": {
+            "type": "string",
+            "description": "Unique identifier for the video processing job."
+          },
+          "did": {
+            "type": "string",
+            "format": "did",
+            "description": "DID of the user uploading the video."
+          },
+          "state": {
+            "type": "string",
+            "description": "The state of the video processing job. Any value not in the known values implies 'in process'.",
+            "knownValues": [
+              "JOB_STATE_COMPLETED",
+              "JOB_STATE_FAILED"
+            ]
+          },
+          "progress": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 100,
+            "description": "Progress within the current processing step (0-100%)."
+          },
+          "blob": {
+            "type": "blob",
+            "description": "Reference to the processed video blob if completed."
+          },
+          "error": {
+            "type": "string",
+            "description": "An error code/name if the job failed."
+          },
+          "message": {
+            "type": "string",
+            "description": "A human-readable message about the job state, errors, or warnings."
+          }
+        }
+      }
+    }
+  }
+  

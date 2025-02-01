@@ -1,0 +1,45 @@
+{
+    "lexicon": 1,
+    "id": "app.reelo.feed.generator",
+    "type": "record",
+    "description": "A custom feed generator for Reelo, interoperable with Bluesky feed generator approach.",
+    "record": {
+      "type": "object",
+      "required": ["did", "creator", "displayName", "createdAt"],
+      "properties": {
+        "$type": {
+          "type": "const",
+          "const": "app.reelo.feed.generator"
+        },
+        "did": {
+          "type": "string",
+          "format": "did",
+          "description": "DID for this feed generator (could be the PDS or a specific feed service)."
+        },
+        "creator": {
+          "type": "ref",
+          "ref": "app.reelo.creator.defs#accountReference",
+          "description": "User or entity that publishes this feed generator."
+        },
+        "displayName": {
+          "type": "string",
+          "description": "Human-readable title for the feed (e.g., 'Reelo Hashtag #Funny').",
+          "maxLength": 64
+        },
+        "description": {
+          "type": "string",
+          "description": "Brief summary of what this feed generator does."
+        },
+        "avatar": {
+          "type": "string",
+          "format": "uri",
+          "description": "Optional image URI for the feed generator."
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time"
+        }
+      }
+    }
+  }
+  

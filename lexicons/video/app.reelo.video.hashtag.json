@@ -1,0 +1,30 @@
+{
+    "lexicon": 1,
+    "id": "app.reelo.video.hashtag",
+    "type": "record",
+    "description": "Describes a hashtag used on Reelo videos",
+    "record": {
+      "type": "object",
+      "required": ["tag"],
+      "properties": {
+        "tag": {
+          "type": "string",
+          "description": "The hashtag text (without '#'), e.g. 'funny'."
+        },
+        "description": {
+          "type": "string",
+          "description": "A short explanation or details about this hashtag."
+        },
+        "usageCount": {
+          "type": "integer",
+          "description": "Number of times this hashtag has been used in Reelo videos."
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "When this hashtag definition was first created."
+        }
+      }
+    }
+  }
+  

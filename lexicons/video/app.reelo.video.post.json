@@ -1,0 +1,48 @@
+{
+    "lexicon": 1,
+    "id": "app.reelo.video.post",
+    "type": "record",
+    "description": "Record describing a final posted video on Reelo",
+    "record": {
+      "type": "object",
+      "required": ["videoBlob", "title", "hashtags", "postedBy", "createdAt", "visibility"],
+      "properties": {
+        "videoBlob": {
+          "type": "blob",
+          "description": "Reference to the final processed video file (once jobStatus is completed)."
+        },
+        "title": {
+          "type": "string",
+          "maxLength": 200,
+          "description": "Video title, max 200 characters."
+        },
+        "hashtags": {
+          "type": "array",
+          "description": "List of hashtag strings used in this video post.",
+          "items": {
+            "type": "string"
+          }
+        },
+        "postedBy": {
+          "type": "ref",
+          "ref": "app.reelo.creator.defs#accountReference",
+          "description": "Reference to the user who posted this video."
+        },
+        "visibility": {
+        "type": "string",
+        "description": "Visibility setting for this video",
+        "enum": ["public", "followers", "private"]
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "When the video was posted."
+        },
+        "description": {
+          "type": "string",
+          "description": "Optional text description beyond the title."
+        }
+      }
+    }
+  }
+  

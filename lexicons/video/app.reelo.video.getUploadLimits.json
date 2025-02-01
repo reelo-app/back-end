@@ -1,0 +1,45 @@
+{
+    "lexicon": 1,
+    "id": "app.reelo.video.getUploadLimits",
+    "defs": {
+      "main": {
+        "type": "query",
+        "description": "Get video upload limits for the authenticated user on Reelo.",
+        "output": {
+          "encoding": "application/json",
+          "schema": {
+            "type": "object",
+            "required": ["canUpload", "maxDurationSeconds"],
+            "properties": {
+              "canUpload": {
+                "type": "boolean",
+                "description": "Indicates if the user is allowed to upload videos at all (could be false for banned or restricted users)."
+              },
+              "maxDurationSeconds": {
+                "type": "integer",
+                "description": "Maximum video duration in seconds for this user/account.",
+                "default": 180
+              },
+              "remainingDailyVideos": {
+                "type": "integer",
+                "description": "How many more videos the user can upload today (if there's a daily limit)."
+              },
+              "remainingDailyBytes": {
+                "type": "integer",
+                "description": "How many more bytes the user can upload today (if there's a daily data limit)."
+              },
+              "message": {
+                "type": "string",
+                "description": "Additional info or warnings for the user about limits."
+              },
+              "error": {
+                "type": "string",
+                "description": "Error code or short name if the user cannot upload."
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  

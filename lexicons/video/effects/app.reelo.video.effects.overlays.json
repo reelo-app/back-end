@@ -1,0 +1,37 @@
+{
+    "lexicon": 1,
+    "id": "app.reelo.video.effects.overlays",
+    "type": "record",
+    "description": "Defines an overlay effect (static or animated stickers, frames).",
+    "record": {
+      "type": "object",
+      "required": ["overlayBlob"],
+      "properties": {
+        "$type": {
+          "type": "const",
+          "const": "app.reelo.video.effects.overlays"
+        },
+        "base": {
+          "type": "ref",
+          "ref": "app.reelo.video.effects.defs#baseEffect"
+        },
+        "overlayBlob": {
+          "type": "blob",
+          "description": "Blob reference to the overlay image/animation."
+        },
+        "position": {
+          "type": "string",
+          "description": "Default position (e.g., 'top-left', 'center', or x/y coords)."
+        },
+        "scalable": {
+          "type": "boolean",
+          "description": "Indicates if the overlay can be resized by the user."
+        },
+        "animated": {
+          "type": "boolean",
+          "description": "Whether this overlay is an animated asset (e.g., GIF)."
+        }
+      }
+    }
+  }
+  

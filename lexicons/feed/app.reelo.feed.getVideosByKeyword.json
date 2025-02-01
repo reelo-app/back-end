@@ -1,0 +1,54 @@
+{
+    "lexicon": 1,
+    "id": "app.reelo.feed.getVideosByKeyword",
+    "defs": {
+      "main": {
+        "type": "query",
+        "description": "Retrieve videos matching a keyword in title, description, or other metadata.",
+        "parameters": {
+          "type": "params",
+          "required": ["q"],
+          "properties": {
+            "q": {
+              "type": "string",
+              "description": "Search keyword."
+            },
+            "limit": {
+              "type": "integer",
+              "default": 20
+            },
+            "cursor": {
+              "type": "string",
+              "description": "Pagination cursor."
+            },
+            "sort": {
+              "type": "string",
+              "description": "Optional: 'relevance', 'recent', or 'popular'.",
+              "default": "relevance"
+            }
+          }
+        },
+        "output": {
+          "encoding": "application/json",
+          "schema": {
+            "type": "object",
+            "required": ["items"],
+            "properties": {
+              "items": {
+                "type": "array",
+                "items": {
+                  "type": "ref",
+                  "ref": "app.reelo.feed.defs#feedItem"
+                }
+              },
+              "cursor": {
+                "type": "string",
+                "description": "Pagination cursor for next page."
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  

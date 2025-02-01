@@ -1,0 +1,35 @@
+{
+    "lexicon": 1,
+    "id": "app.reelo.video.audios.originals",
+    "type": "record",
+    "description": "Represents an original user-created audio recording in Reelo",
+    "record": {
+      "type": "object",
+      "required": ["recordedBy"],
+      "properties": {
+        "$type": {
+          "type": "const",
+          "const": "app.reelo.video.audios.originals"
+        },
+        "base": {
+          "type": "ref",
+          "ref": "app.reelo.video.audios.defs#baseAudio"
+        },
+        "recordedBy": {
+          "type": "ref",
+          "ref": "app.reelo.creator.defs#accountReference",
+          "description": "The user who recorded or created this audio (same as addedBy or could differ)."
+        },
+        "recordedAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "When the audio was originally recorded (if known)."
+        },
+        "location": {
+          "type": "string",
+          "description": "Optional location info if the audio was recorded in a certain place."
+        }
+      }
+    }
+  }
+  

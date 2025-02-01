@@ -1,0 +1,50 @@
+{
+    "lexicon": 1,
+    "id": "app.reelo.feed.getHomeTimeline",
+    "defs": {
+      "main": {
+        "type": "query",
+        "description": "Retrieve the home timeline for the authenticated user, including videos from followed accounts.",
+        "parameters": {
+          "type": "params",
+          "properties": {
+            "limit": {
+              "type": "integer",
+              "description": "Max number of items to return.",
+              "default": 20
+            },
+            "cursor": {
+              "type": "string",
+              "description": "Pagination cursor for fetching more results."
+            },
+            "sort": {
+              "type": "string",
+              "description": "How to sort the timeline, e.g. 'recent' or 'algorithmic'.",
+              "default": "recent"
+            }
+          }
+        },
+        "output": {
+          "encoding": "application/json",
+          "schema": {
+            "type": "object",
+            "required": ["items"],
+            "properties": {
+              "items": {
+                "type": "array",
+                "items": {
+                  "type": "ref",
+                  "ref": "app.reelo.feed.defs#feedItem"
+                }
+              },
+              "cursor": {
+                "type": "string",
+                "description": "Cursor to request the next page of results."
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  

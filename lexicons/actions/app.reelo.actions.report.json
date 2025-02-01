@@ -1,0 +1,38 @@
+{
+    "lexicon": 1,
+    "id": "app.reelo.actions.report",
+    "type": "record",
+    "description": "Represents a user reporting either another user or a piece of content in Reelo.",
+    "record": {
+      "type": "object",
+      "required": ["reportedBy", "subjectUri", "reason", "createdAt"],
+      "properties": {
+        "$type": {
+          "type": "const",
+          "const": "app.reelo.actions.report"
+        },
+        "reportedBy": {
+          "type": "ref",
+          "ref": "app.reelo.creator.defs#accountReference",
+          "description": "The user who files the report."
+        },
+        "subjectUri": {
+          "type": "string",
+          "description": "URI of the user or content being reported. Could point to a user profile or a video/comment record."
+        },
+        "reason": {
+          "type": "string",
+          "description": "Short category or label describing why this is reported (e.g., 'harassment', 'spam')."
+        },
+        "details": {
+          "type": "string",
+          "description": "Optional longer explanation."
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time"
+        }
+      }
+    }
+  }
+  

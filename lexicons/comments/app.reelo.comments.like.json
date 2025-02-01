@@ -1,0 +1,31 @@
+{
+    "lexicon": 1,
+    "id": "app.reelo.comments.like",
+    "type": "record",
+    "description": "A like on a comment or reply within Reelo.",
+    "record": {
+      "type": "object",
+      "required": ["likedBy", "subject", "createdAt"],
+      "properties": {
+        "$type": {
+          "type": "const",
+          "const": "app.reelo.comments.like"
+        },
+        "likedBy": {
+          "type": "ref",
+          "ref": "app.reelo.creator.defs#accountReference",
+          "description": "The user who liked the comment or reply."
+        },
+        "subject": {
+          "type": "ref",
+          "ref": "app.reelo.comments.defs#subjectReference",
+          "description": "URI/CID referencing the comment or reply record."
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time"
+        }
+      }
+    }
+  }
+  

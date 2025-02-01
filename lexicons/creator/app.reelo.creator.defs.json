@@ -1,0 +1,28 @@
+{
+    "lexicon": 1,
+    "id": "app.reelo.creator.defs",
+    "defs": {
+      "moderationStatus": {
+        "type": "string",
+        "description": "Represents moderation status for a Reelo account",
+        "enum": ["active", "banned", "silenced", "adult"]
+      },
+      "accountReference": {
+        "type": "object",
+        "description": "Reference to an account (DID + handle), compatible with Bluesky",
+        "required": ["did", "handle"],
+        "properties": {
+          "did": {
+            "type": "string",
+            "format": "did"
+          },
+          "handle": {
+            "type": "string",
+            "format": "handle",
+            "description": "Can be user.bsky.social, user.reelo.app, etc."
+          }
+        }
+      }
+    }
+  }
+  

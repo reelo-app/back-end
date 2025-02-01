@@ -1,0 +1,41 @@
+{
+    "lexicon": 1,
+    "id": "app.reelo.video.effects.defs",
+    "defs": {
+      "baseEffect": {
+        "type": "object",
+        "description": "Common fields for a video effect in Reelo",
+        "required": ["effectId", "name", "creator", "createdAt"],
+        "properties": {
+          "effectId": {
+            "type": "string",
+            "description": "Unique identifier for this effect."
+          },
+          "name": {
+            "type": "string",
+            "description": "A user-friendly name or title for the effect.",
+            "maxLength": 100
+          },
+          "description": {
+            "type": "string",
+            "description": "Short description of the effect.",
+            "maxLength": 1000
+          },
+          "creator": {
+            "type": "ref",
+            "ref": "app.reelo.creator.defs#accountReference",
+            "description": "User who created or published this effect."
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "usageCount": {
+            "type": "integer",
+            "description": "Number of times this effect has been used in Reelo videos."
+          }
+        }
+      }
+    }
+  }
+  
